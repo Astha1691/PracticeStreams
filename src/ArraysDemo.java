@@ -1,5 +1,5 @@
 
-package DataStructures.Arrays;
+package DataStructures.Arrays.src;
 
 import java.util.*;
 import java.util.stream.Collectors;
