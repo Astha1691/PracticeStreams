@@ -34,6 +34,48 @@ public class ArrayNumberExamples {
         // Exercise 7 : Given a list of numbers, print the maximum and minimum values
         getMaxAndMinValueInList(list);
 
+        // Exercise 8 : Given a list of numbers, sort them in ASC and DESC order and print
+        sortNumbersByASCandDESC(list);
+
+        // Exercise 9 : Given a list of numbers, return the first 5 elements and their sum
+        getFirst5ElementsAndSum(list);
+
+        // Exercise 10 : Given a list of numbers, skip first 5 numbers and return the sum of remaining numbers
+        getSumAfter5Numbers(list);
+
+        // Exercise 11 : Given a list of numbers, return the cube of each number
+        getCubeOfEachNumber(list);
+
+
+    }
+
+    private static void getCubeOfEachNumber(List<Integer> list) {
+
+        List cubeOfEachNumber = list.stream().map(i-> i*i*i).toList();
+        System.out.println("cubeOfEachNumber: "+cubeOfEachNumber);
+
+    }
+
+    private static void getSumAfter5Numbers(List<Integer> list) {
+        int sumLastElements = list.stream().skip(5).collect(Collectors.summingInt(Integer::valueOf));
+        System.out.println("sumLastElements: "+sumLastElements);
+    }
+
+    private static void getFirst5ElementsAndSum(List<Integer> list) {
+        List<Integer> first5elements = list.stream().limit(5).toList();
+
+        int sumFirst5elements = list.stream().limit(5).reduce((a,b)->a+b).get();
+
+        System.out.println("first5elements: "+first5elements+ "sumFirst5elements: "+sumFirst5elements);
+    }
+
+    private static void sortNumbersByASCandDESC(List<Integer> list) {
+        List sortedListAsc = list.stream().sorted().toList();
+        System.out.println("sortedListAsc: "+sortedListAsc);
+
+        List  sortedListDsc = list.stream().sorted(Collections.reverseOrder()).toList();
+        System.out.println("sortedListDsc: "+sortedListDsc);
+
 
     }
 
